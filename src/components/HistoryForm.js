@@ -44,7 +44,10 @@ const HistoryForm = ({ onSubmitHandler }) => {
               : "pointer-events-auto bg-green-600 hover:bg-green-500"
           }`}
           onClick={() =>
-            onSubmitHandler({ email: emailValue, phone: phoneValue })
+            onSubmitHandler({
+              email: emailValue.toLowerCase(),
+              phone: phoneValue.toLowerCase(),
+            })
           }
           disabled={!(!!emailValue && !!phoneValue)}
         >
