@@ -20,7 +20,7 @@ function ShopBar({ dealers }) {
   };
 
   return (
-    <div className="flex flex-col border border-black rounded-xl items-center w-full sm:w-[200px] min-[800px]:w-[250px] px-3 mb-3 sm:m-3 mt-36 sm:mt-10">
+    <div className="flex flex-col text-lg sm:text-base border border-black rounded-xl items-center w-full sm:w-[200px] min-[800px]:w-[250px] px-3 mb-3 sm:m-3 mt-44 sm:mt-10">
       <h2 className="my-3 font-semibold">Shops:</h2>
       {dealers.map((dealer) => {
         return (

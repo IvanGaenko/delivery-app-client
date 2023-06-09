@@ -8,7 +8,7 @@ const OrderSuccess = ({ id, setOrderSuccess }) => {
   };
 
   return (
-    <div className="bg-green-500 flex-1 flex flex-col mx-3 mb-10 mt-36 sm:mt-10 items-center justify-start p-10 rounded-xl">
+    <div className="bg-green-500 flex-1 flex flex-col mx-3 mb-10 mt-44 sm:mt-10 items-center justify-start p-10 rounded-xl">
       <img
         width="64"
         height="64"

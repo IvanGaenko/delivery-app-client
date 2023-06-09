@@ -1,13 +1,16 @@
+import { lazy, Suspense } from "react";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 
 import Root from "../layout/Root";
-import Shop from "../pages/Shop";
-import Cart from "../pages/Cart";
-import OrderHistory from "../pages/OrderHistory";
-import Coupons from "../pages/Coupons";
-import NotFound from "../pages/NotFound";
-
 import routeName from "./routeNames";
+
+import Loading from "../components/Loading";
+
+const Shop = lazy(() => import("../pages/Shop"));
+const Cart = lazy(() => import("../pages/Cart"));
+const OrderHistory = lazy(() => import("../pages/OrderHistory"));
+const Coupons = lazy(() => import("../pages/Coupons"));
+const NotFound = lazy(() => import("../pages/NotFound"));
 
 const router = createBrowserRouter([
   {
@@ -21,19 +24,35 @@ const router = createBrowserRouter([
       },
       {
         path: routeName.shop,
-        element: <Shop />,
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Shop />
+          </Suspense>
+        ),
       },
       {
         path: routeName.cart,
-        element: <Cart />,
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Cart />
+          </Suspense>
+        ),
       },
       {
         path: routeName.history,
-        element: <OrderHistory />,
+        element: (
+          <Suspense fallback={<Loading />}>
+            <OrderHistory />
+          </Suspense>
+        ),
       },
       {
         path: routeName.coupons,
-        element: <Coupons />,
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Coupons />
+          </Suspense>
+        ),
       },
     ],
   },

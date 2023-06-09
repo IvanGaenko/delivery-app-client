@@ -45,7 +45,7 @@ const InputForm = () => {
   };
 
   return (
-    <div className="flex flex-col items-center w-full sm:w-[40%] mt-36 sm:mt-10 sm:mb-3 rounded-xl sm:rounded-br relative bg-gray-400">
+    <div className="flex flex-col items-center w-full sm:w-[40%] mt-44 sm:mt-10 sm:mb-3 rounded-xl sm:rounded-br relative bg-gray-400">
       <Map userMarker={userMarker} />
       <form className="w-full overflow-y-auto mt-[275px] px-3 text-white">
         <div className="flex flex-col w-full mb-5">

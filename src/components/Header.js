@@ -6,7 +6,7 @@ function Header() {
   const { pathname } = useLocation();
 
   return (
-    <nav className="w-full flex flex-col sm:flex-row justify-between items-center absolute h-10 sm:px-10">
+    <nav className="w-full flex flex-col sm:flex-row justify-between items-center absolute h-10 sm:px-10 text-lg sm:text-base">
       <ul className="flex flex-col justify-center items-center sm:flex-row">
         <li
           className={`sm:mr-5  ${

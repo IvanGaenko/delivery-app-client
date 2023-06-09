@@ -75,9 +75,9 @@ const CartBody = ({ setOrderSuccess }) => {
       totalprice,
       discount: currentDiscount.discount ? currentDiscount.discount : null,
       discountprice,
-      email: userData.email.toLowerCase(),
-      phone: userData.phone.toLowerCase(),
-      name: userData.name.toLowerCase(),
+      email: userData.email.toLowerCase().trim(),
+      phone: userData.phone.toLowerCase().trim(),
+      name: userData.name.toLowerCase().trim(),
     };
 
     const data = await CartService.sendCartData(orderData);

@@ -24,7 +24,9 @@ const OrderHistory = () => {
     <div className="flex flex-col h-full mx-3">
       <HistoryForm onSubmitHandler={onSubmitHandler} />
       {cartHistory.length > 0 && <HistoryBody cartHistory={cartHistory} />}
-      {isEmptyHistory && <p>No history on these email and phone number.</p>}
+      {isEmptyHistory && cartHistory.length === 0 && (
+        <p>No history on these email and phone number.</p>
+      )}
     </div>
   );
 };
