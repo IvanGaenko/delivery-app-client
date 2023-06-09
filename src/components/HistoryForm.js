@@ -17,6 +17,7 @@ const HistoryForm = ({ onSubmitHandler }) => {
           </label>
           <input
             type="text"
+            maxLength="255"
             value={emailValue}
             onChange={(e) => onChangeHandler(e.target.value, setEmailValue)}
             placeholder="example@example.com"
@@ -29,7 +30,8 @@ const HistoryForm = ({ onSubmitHandler }) => {
             Phone:
           </label>
           <input
-            type="text"
+            type="tel"
+            maxLength="20"
             value={phoneValue}
             onChange={(e) => onChangeHandler(e.target.value, setPhoneValue)}
             placeholder="+38 (0XX) XXX-XX-XX"

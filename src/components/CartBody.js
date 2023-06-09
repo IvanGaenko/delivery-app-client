@@ -47,6 +47,10 @@ const CartBody = ({ setOrderSuccess }) => {
       !!userData.email &&
       !!userData.phone &&
       !!userData.name &&
+      !!userLocation.address.trim() &&
+      !!userData.email.trim() &&
+      !!userData.phone.trim() &&
+      !!userData.name.trim() &&
       isValidCaptcha &&
       cart.length > 0
     ) {
@@ -75,13 +79,18 @@ const CartBody = ({ setOrderSuccess }) => {
       totalprice,
       discount: currentDiscount.discount ? currentDiscount.discount : null,
       discountprice,
-      email: userData.email.toLowerCase().trim(),
-      phone: userData.phone.toLowerCase().trim(),
-      name: userData.name.toLowerCase().trim(),
+      address: userLocation.address,
+      email: userData.email.toLowerCase(),
+      phone: userData.phone.toLowerCase(),
+      name: userData.name.toLowerCase(),
     };
 
     const data = await CartService.sendCartData(orderData);
-    setOrderSuccess({ status: true, id: data.data.orderid });
+    setOrderSuccess({
+      status: true,
+      id: data.data.orderid,
+      address: data.data.address,
+    });
   };
 
   return (

@@ -1,6 +1,6 @@
 import { useProducts } from "../store/ProductsContext";
 
-const OrderSuccess = ({ id, setOrderSuccess }) => {
+const OrderSuccess = ({ id, setOrderSuccess, address }) => {
   const { successDuration } = useProducts();
 
   const closeHandler = () => {
@@ -15,10 +15,11 @@ const OrderSuccess = ({ id, setOrderSuccess }) => {
         src="https://img.icons8.com/cotton/64/checkmark.png"
         alt="checkmark"
       />
-      <p className="font-semibold text-lg">
+      <p className="font-semibold text-lg my-3">
         You successfully created a delivery order.
       </p>
       <p>Your order ID is {id}.</p>
+      <p>Delivery address: {address}</p>
       <p className="mb-10">{successDuration}</p>
       <p className="underline cursor-pointer" onClick={closeHandler}>
         Close

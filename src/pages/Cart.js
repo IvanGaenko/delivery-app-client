@@ -6,7 +6,11 @@ import CartBody from "../components/CartBody";
 import OrderSuccess from "../components/OrderSuccess";
 
 const Cart = () => {
-  const [orderSuccess, setOrderSuccess] = useState({ status: false, id: null });
+  const [orderSuccess, setOrderSuccess] = useState({
+    status: false,
+    id: null,
+    address: "",
+  });
   const dispatch = useProductsDispatch();
 
   useEffect(() => {
@@ -20,7 +24,11 @@ const Cart = () => {
   return (
     <div className="flex flex-col sm:flex-row h-full mx-3">
       {orderSuccess.status ? (
-        <OrderSuccess id={orderSuccess.id} setOrderSuccess={setOrderSuccess} />
+        <OrderSuccess
+          id={orderSuccess.id}
+          address={orderSuccess.address}
+          setOrderSuccess={setOrderSuccess}
+        />
       ) : (
         <>
           <InputForm />

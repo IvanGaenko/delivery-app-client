@@ -54,6 +54,7 @@ const InputForm = () => {
           </label>
           <input
             type="text"
+            maxLength="255"
             value={address}
             onChange={(e) => updateUserLocation(e.target.value, e.target.id)}
             onKeyDown={(e) => handleSubmit(e)}
@@ -68,6 +69,7 @@ const InputForm = () => {
           </label>
           <input
             type="text"
+            maxLength="255"
             value={userData.email}
             onChange={(e) => onChangeHandler(e.target.value, e.target.id)}
             placeholder="example@example.com"
@@ -81,6 +83,7 @@ const InputForm = () => {
           </label>
           <input
             type="tel"
+            maxLength="20"
             value={userData.phone}
             onChange={(e) => onChangeHandler(e.target.value, e.target.id)}
             placeholder="+38 (0XX) XXX-XX-XX"
@@ -94,6 +97,7 @@ const InputForm = () => {
           </label>
           <input
             type="text"
+            maxLength="255"
             value={userData.name}
             onChange={(e) => onChangeHandler(e.target.value, e.target.id)}
             placeholder="John"
