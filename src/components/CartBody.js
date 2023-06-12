@@ -25,10 +25,17 @@ const CartBody = ({ setOrderSuccess }) => {
       return sum + current.quantity * current.product.price;
     }, 0);
 
+    let discountprice = 0;
+    let isDecimalPrice = false;
+    if (currentDiscount.value !== undefined) {
+      discountprice = totalPriceCount * (1 - currentDiscount.value);
+      isDecimalPrice = discountprice % Math.round(discountprice) > 0;
+    }
+
     dispatch({
       type: "updateTotalPrice",
       totalprice: totalPriceCount,
-      discountprice: totalPriceCount * (1 - currentDiscount.value),
+      discountprice: isDecimalPrice ? discountprice.toFixed(2) : discountprice,
     });
   }, [cart, currentDiscount, dispatch]);
 
@@ -120,11 +127,11 @@ const CartBody = ({ setOrderSuccess }) => {
           <p className="font-semibold truncate mb-3">
             {cart.length > 0 && (
               <>
-                <span className="">Total price: {totalprice}UAH</span>
+                <span className="">Total price: {totalprice} UAH</span>
                 {currentDiscount.discount && (
                   <span>
                     {" "}
-                    - {currentDiscount.discount} = {discountprice}UAH
+                    - {currentDiscount.discount} = {discountprice} UAH
                   </span>
                 )}
               </>

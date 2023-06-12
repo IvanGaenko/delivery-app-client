@@ -119,6 +119,7 @@ function productsReducer(data, action) {
         const findedDealer = data.dealers.find(
           (dealer) => dealer.id === action.payload.product.dealerid
         );
+
         const isIncludedToMapData = data.mapData.dealers.find(
           (dealer) => dealer.id === findedDealer.id
         );
@@ -131,10 +132,10 @@ function productsReducer(data, action) {
         return isIncludedToMapData
           ? newData
           : {
-              ...newData,
+              ...data,
+              cart: [action.payload],
               mapData: {
-                ...data.mapData,
-                dealers: [...data.mapData.dealers, findedDealer],
+                dealers: [findedDealer],
               },
             };
       }
