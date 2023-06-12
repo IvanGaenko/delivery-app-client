@@ -90,7 +90,10 @@ const OrderCard = ({ product, count = 1, orderHistory }) => {
           <div className="flex justify-between">
             <div className="inline-flex bg-blue-500 rounded">
               <button
-                className="w-[30px] rounded-l hover:bg-blue-400"
+                className={`w-[30px] rounded-l ${
+                  quantity > 1 && "hover:bg-blue-400"
+                }`}
+                disabled={quantity === 1}
                 onClick={decreaseQuantity}
               >
                 -
