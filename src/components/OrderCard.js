@@ -5,6 +5,17 @@ const OrderCard = ({ product, count = 1, orderHistory }) => {
   const dispatch = useProductsDispatch();
   const [quantity, setQuantity] = useState(count);
 
+  const setProductPage = () => {
+    dispatch({
+      type: "setProductPage",
+      payload: {
+        product,
+        quantity,
+        isShopPage: false,
+      },
+    });
+  };
+
   const increaseQuantity = () => {
     dispatch({
       type: "changeQuantityInCart",
@@ -46,7 +57,8 @@ const OrderCard = ({ product, count = 1, orderHistory }) => {
       }`}
     >
       <div
-        className={`bg-green-400 flex justify-center items-center ${
+        onClick={setProductPage}
+        className={`bg-green-400 flex justify-center items-center  cursor-pointer ${
           orderHistory
             ? "min-w-[60%] w-[60%] h-[100%] rounded-l-xl"
             : "w-full min-w-[60%] min-[800px]:w-[60%] h-[60%] rounded-t-xl min-[800px]:rounded-l-xl min-[800px]:rounded-r-none"
@@ -67,8 +79,13 @@ const OrderCard = ({ product, count = 1, orderHistory }) => {
         )}
       </div>
       <div className="p-2 flex flex-col flex-1 justify-between">
-        <div className="flex">
-          <p className="font-semibold truncate flex-1">{product.name}</p>
+        <div className="flex justify-between">
+          <p
+            onClick={setProductPage}
+            className="font-semibold truncate cursor-pointer hover:underline"
+          >
+            {product.name}
+          </p>
           {!orderHistory && (
             <button
               className="border border-gray-300 text-gray-300 min-w-fit px-2 rounded bg-transparent hover:bg-[hsla(0,0%,77%,.08)]"

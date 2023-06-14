@@ -49,6 +49,10 @@ function productsReducer(data, action) {
       };
     }
 
+    case "setProductPage": {
+      return { ...data, currentProductPage: action.payload };
+    }
+
     case "resetProductList": {
       return { ...data, products: data.tempProducts, currentDealerId: null };
     }
@@ -132,10 +136,10 @@ function productsReducer(data, action) {
         return isIncludedToMapData
           ? newData
           : {
-              ...data,
-              cart: [action.payload],
+              ...newData,
               mapData: {
-                dealers: [findedDealer],
+                ...data.mapData,
+                dealers: [...data.mapData.dealers, findedDealer],
               },
             };
       }
@@ -228,6 +232,7 @@ const initialValues = {
   products: [],
   tempProducts: [],
   currentDealerId: null,
+  currentProductPage: null,
   userLocation: {
     address: "",
     street_number: "",

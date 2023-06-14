@@ -38,7 +38,6 @@ html {
 }
 
 html, body, #root {
-  background-color: beige;
   height: 100%;
   margin: 0;
   overflow: hidden;
@@ -49,4 +48,12 @@ html, body, #root {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+html {
+  background-color: beige;
+}
+
+html.dark {
+  background-color: rgb(105, 103, 81);
 }

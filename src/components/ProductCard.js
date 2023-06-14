@@ -5,6 +5,17 @@ const ProductCard = ({ product, count = 1 }) => {
   const dispatch = useProductsDispatch();
   const [quantity, setQuantity] = useState(count);
 
+  const setProductPage = () => {
+    dispatch({
+      type: "setProductPage",
+      payload: {
+        product,
+        quantity,
+        isShopPage: true,
+      },
+    });
+  };
+
   const increaseQuantity = () => {
     setQuantity((prev) => prev + 1);
   };
@@ -27,11 +38,10 @@ const ProductCard = ({ product, count = 1 }) => {
   };
 
   return (
-    <div
-      className={`rounded-xl h-[250px] relative text-white shadow-xl cursor-pointer`}
-    >
+    <div className={`rounded-xl h-[250px] relative text-white shadow-xl`}>
       <div
-        className={`bg-green-400 h-full w-full rounded-xl flex justify-center items-center`}
+        onClick={setProductPage}
+        className={`bg-green-400 h-full w-full rounded-xl flex justify-center items-center cursor-pointer`}
       >
         {product.image ? (
           <img
@@ -44,8 +54,13 @@ const ProductCard = ({ product, count = 1 }) => {
         )}
       </div>
       <div className="p-3 pt-1 flex flex-col flex-1 justify-between absolute bottom-0 w-full bg-[rgba(0,0,0,60%)] rounded-b-xl">
-        <div className="flex font-semibold">
-          <span className="truncate flex-1">{product.name}</span>
+        <div className="flex justify-between font-semibold">
+          <span
+            className="truncate cursor-pointer hover:underline"
+            onClick={setProductPage}
+          >
+            {product.name}
+          </span>
           <span>{product.price} UAH</span>
         </div>
 
