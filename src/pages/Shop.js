@@ -8,7 +8,7 @@ function Shop() {
   const data = useProducts();
 
   return (
-    <div className="flex flex-col sm:flex-row sm:h-full p-3 pt-0 sm:p-0">
+    <div className="flex-1 flex flex-col sm:flex-row sm:h-full p-3 pt-0 sm:p-0">
       {data.products.length > 0 ? (
         <>
           <ShopBar dealers={data.dealers} />

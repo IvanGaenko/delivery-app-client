@@ -55,5 +55,14 @@ html {
 }
 
 html.dark {
-  background-color: rgb(105, 103, 81);
+  background-color: #131516;
+  color: #d8d4cf;
+}
+
+html.dark *::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+html.dark * {
+  scrollbar-color: rgba(255, 255, 255, 0.6);
 }

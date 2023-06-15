@@ -67,10 +67,10 @@ const ProductCard = ({ product, count = 1 }) => {
         <p className="text-gray-300 truncate mb-3">{product.dealer}</p>
 
         <div className={`flex justify-between`}>
-          <div className="inline-flex bg-blue-500 rounded">
+          <div className="inline-flex bg-blue-500 dark:bg-blue-600 rounded">
             <button
               className={`w-[30px] rounded-l ${
-                quantity > 1 && "hover:bg-blue-400"
+                quantity > 1 && "hover:bg-blue-400 dark:hover:bg-blue-500"
               }`}
               onClick={decreaseQuantity}
               disabled={quantity === 1}
@@ -79,7 +79,7 @@ const ProductCard = ({ product, count = 1 }) => {
             </button>
             <span className="px-3 w-fit pointer-events-none">{quantity}</span>
             <button
-              className="w-[30px] rounded-r hover:bg-blue-400"
+              className="w-[30px] rounded-r hover:bg-blue-400 dark:hover:bg-blue-500"
               onClick={increaseQuantity}
             >
               +
@@ -87,7 +87,7 @@ const ProductCard = ({ product, count = 1 }) => {
           </div>
 
           <button
-            className={`min-w-[100px] px-3 rounded bg-green-600 hover:bg-green-500 shadow`}
+            className={`min-w-[100px] px-3 rounded bg-green-600 hover:bg-green-500 dark:bg-green-700 dark:hover:bg-green-600 shadow`}
             onClick={() => addToCart(product)}
           >
             Add to card

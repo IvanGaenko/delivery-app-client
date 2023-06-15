@@ -101,7 +101,7 @@ const CartBody = ({ setOrderSuccess }) => {
   };
 
   return (
-    <div className="flex-1 flex flex-col mt-3 sm:mt-10 sm:ml-3 mb-3 relative rounded-xl sm:rounded-tr border border-black">
+    <div className="flex-1 flex flex-col mt-3 sm:mt-10 sm:ml-3 mb-3 relative rounded-xl sm:rounded-tr border border-black dark:border-gray-700">
       <div className="flex flex-col overflow-x-hidden mb-[250px] min-[860px]:mb-[190px] px-3 pt-3">
         {cart.length > 0 ? (
           <>
@@ -122,7 +122,7 @@ const CartBody = ({ setOrderSuccess }) => {
           </p>
         )}
       </div>
-      <div className="absolute bottom-0 w-full text-white bg-[rgba(0,0,0,60%)] h-[250px] min-h-[250px] max-h-[250px] min-[860px]:h-[190px] min-[860px]:min-h-[190px] min-[860px]:max-h-[190px] flex flex-col p-3 rounded-b-xl">
+      <div className="absolute bottom-0 w-full text-white bg-[rgba(0,0,0,60%)] dark:bg-gray-700 h-[250px] min-h-[250px] max-h-[250px] min-[860px]:h-[190px] min-[860px]:min-h-[190px] min-[860px]:max-h-[190px] flex flex-col p-3 rounded-b-xl">
         <div className="flex flex-col justify-between items-center min-[860px]:items-start mb-[95px] min-[860px]:mb-3 flex-1">
           <p className="font-semibold truncate mb-3">
             {cart.length > 0 && (
@@ -137,7 +137,7 @@ const CartBody = ({ setOrderSuccess }) => {
               </>
             )}
           </p>
-          <div className="flex bg-[rgba(0,0,0,45%)] rounded p-1 w-full max-w-[300px] min-w-[200px]">
+          <div className="flex bg-[rgba(0,0,0,45%)] dark:bg-gray-600 rounded p-1 w-full max-w-[300px] min-w-[200px]">
             <input
               type="text"
               value={couponValue}

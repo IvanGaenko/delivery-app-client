@@ -31,25 +31,11 @@ const ProductPage = ({ product, count = 1, isShopPage = false }) => {
   // eslint-enable-next-line react-hooks/exhaustive-deps
 
   const increaseQuantity = () => {
-    dispatch({
-      type: "changeQuantityInCart",
-      payload: {
-        product,
-        quantity: quantity + 1,
-      },
-    });
     setQuantity((prev) => prev + 1);
   };
 
   const decreaseQuantity = () => {
     if (quantity > 1) {
-      dispatch({
-        type: "changeQuantityInCart",
-        payload: {
-          product,
-          quantity: quantity - 1,
-        },
-      });
       setQuantity((prev) => prev - 1);
     }
   };
@@ -62,7 +48,7 @@ const ProductPage = ({ product, count = 1, isShopPage = false }) => {
         quantity,
       },
     });
-    setQuantity(1);
+    onClose();
   };
 
   const onClose = () => {
@@ -77,15 +63,21 @@ const ProductPage = ({ product, count = 1, isShopPage = false }) => {
       <div className="h-full w-full flex justify-center items-center">
         <div
           ref={modalRef}
-          className={`bg-[rgba(0,0,0,70%)] rounded-xl flex flex-col sm:flex-row h-full sm:h-[80%] sm:min-h-[250px] sm:max-h-[700px] w-full sm:w-[80%] sm:min-w-[500px] sm:max-w-[1100px] text-white shadow-xl z-10`}
+          className={`bg-[rgba(0,0,0,70%)] relative min-[400px]:rounded-xl flex flex-col sm:flex-row h-full min-[400px]:h-[90%] sm:h-[80%] sm:min-h-[250px] sm:max-h-[700px] w-full min-[400px]:w-[90%] sm:w-[80%] sm:min-w-[500px] sm:max-w-[1100px] text-white shadow-xl z-10`}
         >
+          <button
+            className="absolute border top-3 z-10 right-3 border-gray-300 text-gray-300 min-w-fit px-2 rounded bg-transparent hover:bg-[hsla(0,0%,77%,.08)]"
+            onClick={onClose}
+          >
+            X
+          </button>
           <div
-            className={`min-h-[50%] h-full w-full min-w-[60%] sm:rounded-l-xl flex justify-center items-center`}
+            className={`min-h-[50%] h-full w-full min-w-[60%] min-[400px]:rounded-t-xl sm:rounded-l-xl sm:rounded-tr-none flex justify-center items-center`}
           >
             {product.image ? (
               <img
                 src={product.image}
-                className="w-full h-full object-cover sm:rounded-l-xl"
+                className="w-full h-full object-cover min-[400px]:rounded-t-xl sm:rounded-l-xl sm:rounded-tr-none"
                 alt=""
               />
             ) : (
@@ -93,26 +85,16 @@ const ProductPage = ({ product, count = 1, isShopPage = false }) => {
             )}
           </div>
 
-          <div className="p-3 flex flex-col justify-between relative w-full sm:max-w-[300px] h-full min-h-[200px] max-h-[700px] bg-[rgba(0,0,0,60%)] sm:rounded-r-xl">
+          <div className="p-3 flex flex-col justify-between relative w-full sm:max-w-[300px] h-full min-h-[200px] max-h-[700px] bg-[rgba(0,0,0,60%)] min-[400px]:rounded-b-xl sm:rounded-bl-none sm:rounded-r-xl">
             <div className="flex flex-col h-full">
               <div className="flex justify-between items-center">
                 <span className="break-words font-semibold text-lg">
                   {product.name}
                 </span>
-                <button
-                  className="border self-start border-gray-300 text-gray-300 min-w-fit px-2 rounded bg-transparent hover:bg-[hsla(0,0%,77%,.08)]"
-                  onClick={onClose}
-                >
-                  X
-                </button>
               </div>
 
               <p className="text-gray-300 min-h-[25px] truncate mb-3">
                 {product.dealer}
-              </p>
-
-              <p className="mb-3">
-                {product.weight} g | {product.kcal} kcal
               </p>
 
               <div
@@ -120,6 +102,9 @@ const ProductPage = ({ product, count = 1, isShopPage = false }) => {
                   isShopPage ? "mb-[85px] sm:mb-[70px]" : "mb-0"
                 }`}
               >
+                <p className="mb-3">
+                  {product.weight} g | {product.kcal} kcal
+                </p>
                 <p className="flex-1">{product.description}</p>
               </div>
             </div>
@@ -129,10 +114,11 @@ const ProductPage = ({ product, count = 1, isShopPage = false }) => {
                 className={`flex flex-col justify-between absolute bottom-3 left-3 right-3`}
               >
                 <div className="flex justify-between items-center mb-3">
-                  <div className="flex bg-blue-500 rounded">
+                  <div className="flex bg-blue-500 dark:bg-blue-600 rounded">
                     <button
                       className={`w-[30px] min-w-[30px] rounded-l ${
-                        quantity > 1 && "hover:bg-blue-400"
+                        quantity > 1 &&
+                        "hover:bg-blue-400 dark:hover:bg-blue-500"
                       }`}
                       onClick={decreaseQuantity}
                       disabled={quantity === 1}
@@ -143,7 +129,7 @@ const ProductPage = ({ product, count = 1, isShopPage = false }) => {
                       {quantity}
                     </span>
                     <button
-                      className="w-[30px] min-w-[30px] rounded-r hover:bg-blue-400"
+                      className="w-[30px] min-w-[30px] rounded-r hover:bg-blue-400 dark:hover:bg-blue-500"
                       onClick={increaseQuantity}
                     >
                       +
@@ -155,7 +141,7 @@ const ProductPage = ({ product, count = 1, isShopPage = false }) => {
                 </div>
 
                 <button
-                  className={`min-w-[110px] h-[40px] sm:h-[24px] px-3 rounded bg-green-600 hover:bg-green-500 shadow`}
+                  className={`min-w-[110px] h-[40px] sm:h-[24px] px-3 rounded bg-green-600 hover:bg-green-500 dark:bg-green-700 dark:hover:bg-green-600 shadow`}
                   onClick={() => addToCart(product)}
                 >
                   Add to card

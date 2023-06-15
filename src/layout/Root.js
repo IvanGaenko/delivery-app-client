@@ -12,8 +12,6 @@ function Root() {
   const { currentProductPage } = useProducts();
   const dispatch = useProductsDispatch();
 
-  // document.documentElement.classList.add("dark");
-
   const getProducts = useCallback(async () => {
     const { data } = await ShopService.getProductList();
 
@@ -29,7 +27,7 @@ function Root() {
 
   return (
     <div
-      className={`h-full mx-auto my-0 w-full min-w-[290px] !max-w-[1682px] relative ${
+      className={`h-full flex flex-col mx-auto my-0 w-full min-w-[290px] !max-w-[1682px] relative ${
         currentProductPage ? "overflow-y-hidden" : "overflow-y-auto"
       } sm:overflow-y-hidden`}
     >

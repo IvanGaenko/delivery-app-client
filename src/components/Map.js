@@ -204,6 +204,7 @@ const Map = ({ userMarker }) => {
             <GoogleMap
               mapContainerClassName="h-full w-full bg-blue-300 rounded-xl shadow-xl"
               center={center}
+              mapContainerStyle={{ background: "red" }}
               zoom={10}
               onLoad={onLoad}
               onUnmount={() => setMap(null)}

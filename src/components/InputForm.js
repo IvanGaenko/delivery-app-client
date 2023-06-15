@@ -45,7 +45,7 @@ const InputForm = () => {
   };
 
   return (
-    <div className="flex flex-col items-center w-full sm:w-[40%] mt-44 sm:mt-10 sm:mb-3 rounded-xl sm:rounded-br relative bg-gray-400">
+    <div className="flex flex-col items-center w-full sm:w-[40%] mt-44 sm:mt-10 sm:mb-3 rounded-xl sm:rounded-br relative bg-gray-400 dark:bg-gray-700">
       <Map userMarker={userMarker} />
       <form className="w-full overflow-y-auto mt-[275px] px-3 text-white">
         <div className="flex flex-col w-full mb-5">
@@ -60,7 +60,7 @@ const InputForm = () => {
             onKeyDown={(e) => handleSubmit(e)}
             placeholder="Sumska street, 1, Kharkiv"
             id="address"
-            className="w-full block rounded text-black leading-[1.6] outline-none px-3 py-[0.32rem] shadow"
+            className="w-full block rounded text-black leading-[1.6] outline-none px-3 py-[0.32rem] shadow dark:bg-gray-600"
           />
         </div>
         <div className="flex flex-col w-full mb-5">
@@ -74,7 +74,7 @@ const InputForm = () => {
             onChange={(e) => onChangeHandler(e.target.value, e.target.id)}
             placeholder="example@example.com"
             id="email"
-            className="w-full block rounded text-black leading-[1.6] outline-none px-3 py-[0.32rem] shadow"
+            className="w-full block rounded text-black leading-[1.6] outline-none px-3 py-[0.32rem] shadow dark:bg-gray-600"
           />
         </div>
         <div className="flex flex-col w-full mb-5">
@@ -88,7 +88,7 @@ const InputForm = () => {
             onChange={(e) => onChangeHandler(e.target.value, e.target.id)}
             placeholder="+38 (0XX) XXX-XX-XX"
             id="phone"
-            className="w-full block rounded text-black leading-[1.6] outline-none px-3 py-[0.32rem] shadow"
+            className="w-full block rounded text-black leading-[1.6] outline-none px-3 py-[0.32rem] shadow dark:bg-gray-600"
           />
         </div>
         <div className="flex flex-col w-full mb-5">
@@ -102,7 +102,7 @@ const InputForm = () => {
             onChange={(e) => onChangeHandler(e.target.value, e.target.id)}
             placeholder="John"
             id="name"
-            className="w-full block rounded text-black leading-[1.6] outline-none px-3 py-[0.32rem] shadow"
+            className="w-full block rounded text-black leading-[1.6] outline-none px-3 py-[0.32rem] shadow dark:bg-gray-600"
           />
         </div>
       </form>

@@ -50,7 +50,7 @@ const OrderCard = ({ product, count = 1, orderHistory }) => {
 
   return (
     <div
-      className={`bg-[rgba(0,0,0,70%)] text-white rounded-xl flex min-[800px]:flex-row mb-3 shadow ${
+      className={`bg-[rgba(0,0,0,70%)] text-white rounded-xl flex min-[800px]:flex-row mb-3 shadow dark:border dark:border-gray-600 ${
         orderHistory
           ? "w-[350px] min-w-[350px] h-full flex-row mb-0 mr-3 shadow-lg"
           : "flex-col h-[350px] min-h-[350px] max-h-[350px] min-[800px]:h-[250px] min-[800px]:min-h-[143px] min-[800px]:max-h-[143px]"
@@ -88,7 +88,7 @@ const OrderCard = ({ product, count = 1, orderHistory }) => {
           </p>
           {!orderHistory && (
             <button
-              className="border border-gray-300 text-gray-300 min-w-fit px-2 rounded bg-transparent hover:bg-[hsla(0,0%,77%,.08)]"
+              className="border border-gray-300 dark:border-gray-400 text-gray-300 dark:text-gray-400 min-w-fit px-2 rounded bg-transparent hover:bg-[hsla(0,0%,77%,.08)]"
               onClick={removeFromCart}
             >
               X
@@ -105,10 +105,10 @@ const OrderCard = ({ product, count = 1, orderHistory }) => {
         </p>
         {!orderHistory && (
           <div className="flex justify-between">
-            <div className="inline-flex bg-blue-500 rounded">
+            <div className="inline-flex bg-blue-500 dark:bg-blue-600 rounded">
               <button
                 className={`w-[30px] rounded-l ${
-                  quantity > 1 && "hover:bg-blue-400"
+                  quantity > 1 && "hover:bg-blue-400 dark:hover:bg-blue-500"
                 }`}
                 disabled={quantity === 1}
                 onClick={decreaseQuantity}
@@ -117,7 +117,7 @@ const OrderCard = ({ product, count = 1, orderHistory }) => {
               </button>
               <span className="px-3 pointer-events-none">{quantity}</span>
               <button
-                className="w-[30px] rounded-r hover:bg-blue-400"
+                className="w-[30px] rounded-r hover:bg-blue-400 dark:hover:bg-blue-500"
                 onClick={increaseQuantity}
               >
                 +

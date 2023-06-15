@@ -10,7 +10,7 @@ const HistoryForm = ({ onSubmitHandler }) => {
 
   return (
     <div className="flex justify-center w-full pb-3 mt-44 sm:mt-10">
-      <div className="rounded-xl bg-gray-500 text-white flex flex-col sm:flex-row justify-around items-center w-full  max-w-[1000px] p-3 shadow-xl">
+      <div className="rounded-xl bg-gray-500 dark:bg-gray-700 text-white flex flex-col sm:flex-row justify-around items-center w-full  max-w-[1000px] p-3 shadow-xl">
         <div className="flex flex-col w-full sm:w-[300px] sm:mr-3">
           <label htmlFor="EmailInput" className="pl-3">
             Email:
