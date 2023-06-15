@@ -20,18 +20,20 @@ function ShopBar({ dealers }) {
   };
 
   return (
-    <div className="flex flex-col text-lg sm:text-base border border-black dark:border-gray-400 rounded-xl items-center w-full sm:w-[200px] min-[800px]:w-[250px] px-3 mb-3 sm:m-3 mt-44 sm:mt-10">
+    <div className="flex flex-col text-lg sm:text-base border border-black dark:border-gray-400 rounded-xl items-center w-full sm:w-[200px] min-[800px]:w-[250px] pl-3 mb-3 sm:m-3 mt-44 sm:mt-10">
       <h2 className="my-3 font-semibold">Shops:</h2>
-      {dealers.map((dealer) => {
-        return (
-          <DealerCard
-            dealer={dealer}
-            key={dealer.id}
-            currentDealerId={currentDealerId}
-            selectCurrentDealer={selectCurrentDealer}
-          />
-        );
-      })}
+      <div className="flex flex-col w-full h-full overflow-x-hidden sm:overflow-y-auto pr-3">
+        {dealers.map((dealer) => {
+          return (
+            <DealerCard
+              dealer={dealer}
+              key={dealer.id}
+              currentDealerId={currentDealerId}
+              selectCurrentDealer={selectCurrentDealer}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }

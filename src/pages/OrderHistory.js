@@ -4,28 +4,41 @@ import CartService from "../services/cart.service";
 
 import HistoryForm from "../components/HistoryForm";
 import HistoryBody from "../components/HistoryBody";
+import Loading from "../components/Loading";
 
 const OrderHistory = () => {
-  const [cartHistory, setCartHistory] = useState([]);
-  const [isEmptyHistory, setIsEmptyHistory] = useState(false);
+  const [cartHistory, setCartHistory] = useState({ data: [], error: null });
+  const [isLoading, setIsLoading] = useState(false);
+
+  const errorMessage = "No order history on these email and phone number.";
 
   const onSubmitHandler = async (data) => {
-    setIsEmptyHistory(false);
+    setIsLoading(true);
+
     const result = await CartService.getUserCartHistory(data);
 
+    setIsLoading(false);
+
     if (result.data.success === true) {
-      setCartHistory(result.data.orderHistory);
+      setCartHistory({ data: result.data.orderHistory, error: null });
     } else {
-      setIsEmptyHistory(true);
+      setCartHistory({
+        data: [],
+        error: errorMessage,
+      });
     }
   };
 
   return (
-    <div className="flex flex-col h-full mx-3">
+    <div className="flex flex-col items-center h-full mx-3">
       <HistoryForm onSubmitHandler={onSubmitHandler} />
-      {cartHistory.length > 0 && <HistoryBody cartHistory={cartHistory} />}
-      {isEmptyHistory && cartHistory.length === 0 && (
-        <p>No history on these email and phone number.</p>
+
+      {isLoading ? (
+        <Loading />
+      ) : cartHistory.data.length > 0 ? (
+        <HistoryBody cartHistory={cartHistory.data} />
+      ) : (
+        cartHistory.error && <p>{cartHistory.error}</p>
       )}
     </div>
   );

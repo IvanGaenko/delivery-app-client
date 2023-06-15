@@ -5,17 +5,19 @@ import ShopBar from "../components/ShopBar";
 import ShopBody from "../components/ShopBody";
 
 function Shop() {
-  const data = useProducts();
+  const { dealers, products } = useProducts();
 
   return (
-    <div className="flex-1 flex flex-col sm:flex-row sm:h-full p-3 pt-0 sm:p-0">
-      {data.products.length > 0 ? (
+    <div className="flex-1 flex flex-col sm:flex-row sm:h-full mx-3 sm:mx-0">
+      {products.length > 0 ? (
         <>
-          <ShopBar dealers={data.dealers} />
-          <ShopBody products={data.products} activeDealerId={null} />
+          <ShopBar dealers={dealers} />
+          <ShopBody products={products} activeDealerId={null} />
         </>
       ) : (
-        <Loading />
+        <div className="w-full h-full mt-44 sm:mt-10">
+          <Loading />
+        </div>
       )}
     </div>
   );
