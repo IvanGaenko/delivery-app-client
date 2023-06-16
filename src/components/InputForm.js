@@ -60,7 +60,7 @@ const InputForm = () => {
             onKeyDown={(e) => handleSubmit(e)}
             placeholder="Sumska street, 1, Kharkiv"
             id="address"
-            className="w-full block rounded text-black leading-[1.6] outline-none px-3 py-[0.32rem] shadow dark:bg-gray-600"
+            className="w-full block rounded text-black dark:text-gray-300 leading-[1.6] outline-none px-3 py-[0.32rem] shadow dark:bg-gray-600"
           />
         </div>
         <div className="flex flex-col w-full mb-5">
@@ -74,7 +74,7 @@ const InputForm = () => {
             onChange={(e) => onChangeHandler(e.target.value, e.target.id)}
             placeholder="example@example.com"
             id="email"
-            className="w-full block rounded text-black leading-[1.6] outline-none px-3 py-[0.32rem] shadow dark:bg-gray-600"
+            className="w-full block rounded text-black dark:text-gray-300 leading-[1.6] outline-none px-3 py-[0.32rem] shadow dark:bg-gray-600"
           />
         </div>
         <div className="flex flex-col w-full mb-5">
@@ -88,7 +88,7 @@ const InputForm = () => {
             onChange={(e) => onChangeHandler(e.target.value, e.target.id)}
             placeholder="+38 (0XX) XXX-XX-XX"
             id="phone"
-            className="w-full block rounded text-black leading-[1.6] outline-none px-3 py-[0.32rem] shadow dark:bg-gray-600"
+            className="w-full block rounded text-black dark:text-gray-300 leading-[1.6] outline-none px-3 py-[0.32rem] shadow dark:bg-gray-600"
           />
         </div>
         <div className="flex flex-col w-full mb-5">
@@ -102,7 +102,7 @@ const InputForm = () => {
             onChange={(e) => onChangeHandler(e.target.value, e.target.id)}
             placeholder="John"
             id="name"
-            className="w-full block rounded text-black leading-[1.6] outline-none px-3 py-[0.32rem] shadow dark:bg-gray-600"
+            className="w-full block rounded text-black dark:text-gray-300 leading-[1.6] outline-none px-3 py-[0.32rem] shadow dark:bg-gray-600"
           />
         </div>
       </form>

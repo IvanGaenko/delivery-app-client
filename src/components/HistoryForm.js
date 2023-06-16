@@ -22,7 +22,7 @@ const HistoryForm = ({ onSubmitHandler }) => {
             onChange={(e) => onChangeHandler(e.target.value, setEmailValue)}
             placeholder="example@example.com"
             id="EmailInput"
-            className="w-full block rounded text-black leading-[1.6] outline-none px-3 py-[0.32rem] shadow"
+            className="w-full block rounded text-black dark:text-gray-300 leading-[1.6] outline-none px-3 py-[0.32rem] shadow dark:bg-gray-600"
           />
         </div>
         <div className="flex flex-col w-full sm:w-[300px] mb-3 sm:mb-0 sm:mr-3">
@@ -36,7 +36,7 @@ const HistoryForm = ({ onSubmitHandler }) => {
             onChange={(e) => onChangeHandler(e.target.value, setPhoneValue)}
             placeholder="+38 (0XX) XXX-XX-XX"
             id="PhoneInput"
-            className="w-full block rounded text-black leading-[1.6] outline-none px-3 py-[0.32rem] shadow"
+            className="w-full block rounded text-black dark:text-gray-300 leading-[1.6] outline-none px-3 py-[0.32rem] shadow dark:bg-gray-600"
           />
         </div>
         <button
